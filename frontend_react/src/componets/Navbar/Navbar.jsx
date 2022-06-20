@@ -35,7 +35,7 @@ const Navbar = () => {
         {
           toggle && (
             <motion.div
-              whileInView={{ x: [300, 0] }}
+              whileInView={{ x: [100, 0] }}
               transition={{ duration: 0.85, ease: 'easeOut'}}>
                 <AiOutlineClose onClick={ () => setToggle(false) } />
                 <ul>
