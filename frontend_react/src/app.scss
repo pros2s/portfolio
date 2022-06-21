@@ -50,7 +50,8 @@
 
   p {
     text-transform: uppercase;
-    color: $black-color;
+    margin-bottom: -85px;
+    margin-right: -5px;
   }
 }
 
@@ -104,6 +105,25 @@
   }
 }
 
+.copied-message {
+  position: absolute;
+  left: 65px;
+
+  height: 40px;
+  padding: 10px;
+  margin-bottom: 4px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: rgb(96, 183, 118);
+
+  background-color: #fff;
+  border-radius: 20px;
+  border: 1px solid rgb(96, 183, 118);
+}
+
 .app__social {
   display: flex;
   justify-content: flex-end;
@@ -112,19 +132,49 @@
 
   padding: 1rem;
 
-  div {
+  .copied {
+    position: relative;
     width: 40px;
     height: 40px;
+
+    border: 1px solid rgb(96, 183, 118);
     border-radius: 50%;
+
     background-color: $white-color;
     margin: 0.25rem 0;
-    border: 1px solid $lightGray-color;
 
     display: flex;
     justify-content: center;
     align-items: center;
 
-    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+
+    transition: all 0.3s ease-out;
+
+    svg {
+      width: 15px;
+      height: 15px;
+      color: rgb(96, 183, 118);
+    }
+  }
+
+  .app__social-item {
+    width: 40px;
+    height: 40px;
+
+    border-radius: 50%;
+    border: 1px solid $lightGray-color;
+
+    background-color: $white-color;
+    margin: 0.25rem 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    cursor: pointer;
+
+    transition: all 0.3s ease-out;
 
     svg {
       width: 15px;

@@ -18,6 +18,10 @@ import sass from '../assets/sass.png';
 import typescript from '../assets/typescript.svg';
 import vue from '../assets/vue.png';
 
+import github from '../assets/github.svg';
+import gmail from '../assets/gmail.svg';
+import telegram from '../assets/telegram.svg';
+
 import about01 from '../assets/about01.png';
 import about02 from '../assets/about02.png';
 import about03 from '../assets/about03.png';
@@ -36,6 +40,9 @@ import skype from '../assets/skype.png';
 import spotify from '../assets/spotify.png';
 
 export default { //eslint-disable-line
+  github,
+  gmail,
+  telegram,
   email,
   mobile,
   api,
