@@ -16,12 +16,12 @@ const App = () => {
   return (
     <div className='app'>
       <Navbar />
-      <About />
-      <Footer />
       <Header />
+      <About />
       <Skills />
       <Testimonials />
       <Work />
+      <Footer />
     </div>
   );
 };
