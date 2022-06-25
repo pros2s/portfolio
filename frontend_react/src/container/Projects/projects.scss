@@ -56,10 +56,11 @@ app__works {
 
   .app__work-item {
     width: 270px;
+    height: 400px;
 
     flex-direction: column;
 
-    margin: 2rem;
+    margin: 1rem;
     padding: 1rem;
 
     border-radius: 0.5rem;
@@ -81,10 +82,22 @@ app__works {
       border-radius: 0.75rem;
     }
 
+    @media screen and (max-width: 815px) {
+      width: 400px;
+    }
+
+    @media screen and (max-width: 440px) {
+      width: 300px;
+    }
+
     @media screen and (max-width: 300px) {
       width: 100%;
       margin: 1rem;
     }
+  }
+
+  @media screen and (max-width: 645px) {
+    width: 295px;
   }
 }
 
@@ -103,6 +116,10 @@ app__works {
 
   @media screen and (min-width: 2000px) {
     height: 350px;
+  }
+
+  @media screen and (max-width: 815px) {
+    height: 260px;
   }
 }
 

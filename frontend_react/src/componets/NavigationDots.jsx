@@ -5,7 +5,7 @@ const NavigationDots = ({ active }) => {
   return (
     <div className='app__navigation'>
       {
-        ['home', 'about', 'work', 'skills', 'testimonials', 'contact'].map((item, i) =>
+        ['home', 'about', 'projects', 'skills', 'testimonials', 'contact'].map((item, i) =>
           <a // eslint-disable-line
             href={ `#${ item }` }
             className="app__navigation-dot"

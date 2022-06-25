@@ -8,7 +8,7 @@ import {
   Header,
   Skills,
   Testimonials,
-  Work
+  Projects
 } from './container';
 
 
@@ -20,7 +20,7 @@ const App = () => {
       <About />
       <Skills />
       <Testimonials />
-      <Work />
+      <Projects />
       <Footer />
     </div>
   );

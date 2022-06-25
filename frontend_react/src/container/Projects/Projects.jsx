@@ -6,17 +6,17 @@ import { motion } from 'framer-motion';
 
 import { AppWrap } from '../../wrapper';
 import { urlFor, client } from '../../client';
-import './work.scss';
+import './projects.scss';
 
 
-const Work = () => {
+const Projects = () => {
   const [ activeFilter, setActiveFilter ] = useState('All');
   const [ animateCard, setAnimateCard ] = useState({ y: 0, opacity: 1 });
   const [ works, setWorks ] = useState([]);
   const [ filterWorks, setFilterWorks ] = useState([]);
 
   useEffect(() => {
-    const query = '*[_type == "works"]';
+    const query = '*[_type == "projects"]';
 
     client.fetch(query)
       .then((res) => {
@@ -47,7 +47,7 @@ const Work = () => {
 
       <div className="app__work-filter">
         {
-          ['All', 'ReactJs + Redux + TS', 'ReactJs + Redux', 'ReactJs', 'Native Js'].map((item, i) => (
+          ['All', 'ReactTs', 'ReactJs', 'JsNative'].map((item, i) => (
             <div
               key={ i }
               onClick={ () => handleWorker(item) }
@@ -67,7 +67,7 @@ const Work = () => {
         className='app__work-portfolio'>
           {
             filterWorks.map((work, i) => (
-              <div className="app__work-item app__flex" key={ work.name + i }>
+              <div className="app__work-item app__flex" key={ i }>
                 <div
                   className="app__work-img app__flex"
                 >
@@ -118,4 +118,4 @@ const Work = () => {
 };
 
 
-export default AppWrap(Work, 'work');
+export default AppWrap(Projects, 'projects');
