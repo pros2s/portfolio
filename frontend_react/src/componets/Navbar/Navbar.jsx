@@ -40,7 +40,7 @@ const Navbar = () => {
                 <AiOutlineClose onClick={ () => setToggle(false) } />
                 <ul>
                   {
-                    ['home', 'about', 'work', 'skills', 'contact'].map((item) => (
+                    ['home', 'about', 'projects', 'skills', 'testimonials', 'contact'].map((item) => (
                         <li
                           key={ item }>
                             <a

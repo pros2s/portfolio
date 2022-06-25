@@ -8,16 +8,24 @@
 }
 
 .app__testimonial-item {
-  width: 90%;
-  min-height: 320px;
   background-color: $white-color;
+
   display: flex;
   flex-direction: row;
+
+  width: 90%;
+  overflow: hidden;
+  min-height: 320px;
   padding: 2rem;
+
   border-radius: 15px;
   box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);
 
   transition: all 0.3s ease-in-out;
+
+  .transition-right {
+    transform: translateY(-100%)
+  }
 
   img {
     width: 100px;
