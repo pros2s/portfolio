@@ -39,6 +39,10 @@
   }
 }
 
+.app__projects {
+  flex-direction: column;
+}
+
 .copyright {
   width: 100%;
   padding: 2rem 0 0;
