@@ -37,7 +37,7 @@ const SocialMedia = () => {
 
         <CopyToClipboard
           title='click to copy my gmail'
-          text='lelocanya@gmail.com'
+          text='alexandrpod22@gmail.com'
           onCopy={ onCopy }
           className={ `${ copy ? 'copied' : 'app__social-item' }` }>
             <div>
