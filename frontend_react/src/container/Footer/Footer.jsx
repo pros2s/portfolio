@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import TextareaAutosize from 'react-textarea-autosize';
+import { useForm } from 'react-hook-form';
 
 import { images } from '../../constants';
 import { MotionWrap, AppWrap } from '../../wrapper';
@@ -9,11 +10,16 @@ import './footer.scss';
 
 
 const Footer = () => {
-  const [ formData, setFormDate ] = useState({ name: '', email: '', message: '' });
+  const [ formData, setFormDate ] = useState({ name: '', email: '', text: '' });
   const [ isFormSubmitted, setIsFormSubmitted ] = useState(false);
   const [status, setStatus] = useState("Submit");
 
-  const { name, email, message } = formData;
+  const { register, formState: { errors }, handleSubmit, reset } = useForm({
+    mode: 'onBlur'
+  });
+
+
+  const { name, email, text } = formData;
 
   const handleChangeInput = (e) => {
     const { name, value } = e.target;
@@ -21,10 +27,12 @@ const Footer = () => {
     setFormDate({ ...formData, [ name ]: value })
   };
 
-  const handleSubmit = async (e) => {
+  const handleOnSubmit = async (e) => {
     e.preventDefault();
     setStatus("Sending...");
     sanitySubmit();
+
+    reset();
   };
 
   const sanitySubmit = () => {
@@ -32,7 +40,7 @@ const Footer = () => {
       _type: 'contact',
       name,
       email,
-      message
+      text
     };
 
     client.create(contact)
@@ -63,45 +71,73 @@ const Footer = () => {
         !isFormSubmitted
           ?
             <form
-              onSubmit={ handleSubmit }
+              noValidate
+              onSubmit={ handleSubmit(handleOnSubmit) }
               className="app__footer-form app__flex"
               method='POST'
               name='contact'>
                 <div className="app__flex">
                   <input
+                    {
+                         ...register('name', {
+                        required: 'Required to fill',
+                        minLength: {
+                          value: 2,
+                          message: 'Minimum 2 symbols'
+                        }
+                      })
+                    }
                     className="p-text"
                     type="text"
                     placeholder='Your name'
-                    name='name'
                     value={ name }
-                    onChange={ handleChangeInput }
-                    required />
+                    onChange={ handleChangeInput }/>
+                  { errors?.name && <p>{ errors?.name?.message || "Error" }</p>}
                 </div>
 
                 <div className="app__flex">
                   <input
+                    {
+                        ...register('email', {
+                        required: 'Required to fill',
+                        pattern: {
+                          value: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/gi,
+                          message: 'Invalid email address'
+                        }
+                      })
+                    }
                     className="p-text"
                     type="email"
                     placeholder='Your Email'
-                    name='email'
                     value={ email }
-                    onChange={ handleChangeInput }
-                    required />
+                    onChange={ handleChangeInput }/>
+                  { errors?.email && <p>{ errors?.email?.message || "Error" }</p>}
                 </div>
 
                 <div>
                   <TextareaAutosize
+                    {
+
+                        ...register('text', {
+                        required: 'Required to fill',
+                        minLength: {
+                          value: 10,
+                          message: 'Minimum 10 symbols'
+                        }
+                      })
+                    }
                     className='p-text'
                     placeholder='Your message'
-                    name='message'
-                    value={ message }
-                    onChange={ handleChangeInput }
-                    required />
+                    value={ text }
+                    onChange={ handleChangeInput }/>
+
+                  { errors?.text && <p>{ errors?.text?.message || "Error" }</p>}
                 </div>
 
                 <button
                   className='p-text'
-                  type='submit'>
+                  type='submit'
+                  disabled>
                     { status === 'Sending...' ? 'Sending...' : 'Send message' }
                 </button>
             </form>

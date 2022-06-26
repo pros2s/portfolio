@@ -64,6 +64,10 @@
     }
   }
 
+  @media screen and (max-width: 750px) {
+    margin: 2em 0 0;
+  }
+
   @media screen and (max-width: 768px) {
     width: 100%;
   }
@@ -84,8 +88,10 @@
   margin: 1rem 2rem;
 
   div {
+    position: relative;
+
     width: 100%;
-    margin: 0.75rem 0;
+    margin: 0.85rem 0;
 
     border-radius: 10px;
     cursor: pointer;
@@ -107,6 +113,14 @@
       outline: none;
     }
 
+    p {
+      position: absolute;
+      left: 0;
+      font-size: 0.9rem;
+      top: 100%;
+      color: #EB4C42;
+    }
+
     textarea {
       min-height: 120px;
       resize: none;
@@ -118,6 +132,14 @@
   }
 
   button {
+    &:disabled {
+      background-color: #6369a3;
+
+      &:hover {
+        background-color: #6369a3;
+      }
+    }
+
     padding: 1rem 2rem;
     margin: 2rem 0 0 0;
 
