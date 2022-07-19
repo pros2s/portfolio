@@ -1,5 +1,5 @@
 import React from 'react';
-import { SocialMedia, NavigationDots } from '../componets';
+import { NavigationDots, SocialMedia } from '../componets';
 
 
 const AppWrap = (Component, idName, classNames) => function HOC() {
@@ -15,7 +15,7 @@ const AppWrap = (Component, idName, classNames) => function HOC() {
         </div>
       </div>
 
-      <NavigationDots active={ idName } />
+      <NavigationDots activeId={ idName } />
     </div>
   );
 };
